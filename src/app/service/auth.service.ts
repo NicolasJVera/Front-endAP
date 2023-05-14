@@ -4,12 +4,13 @@ import { NuevoUsuario } from '../model/nuevo-usuario';
 import { Observable } from 'rxjs';
 import { LoginUsuario } from '../model/login-usuario';
 import { JwtDto } from '../model/jwt-dto';
+import { environment } from '../environments/environments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  authURL = 'https://portfolio-backend-vau2.onrender.com/auth/';
+  authURL = environment.URL + 'auth/';
 
   constructor(private httpClient: HttpClient) { }
 
