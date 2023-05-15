@@ -2,7 +2,7 @@
   Experiencia
 ===================== */
 
-.exp-header {
+/* .exp-header {
     padding-top: 1rem;
     margin-left: 1rem;
     margin-bottom: 1rem;
@@ -21,4 +21,17 @@
   .card:hover {
     box-shadow: 5px 50px 20px rgba(0, 0, 0, 0.4);
     transform: translateY(-3%);
-  }
+  } */
+
+  .list-group-flush {
+    padding-left: .5rem;
+    padding-top: 1rem;
+    margin-top: .5rem;
+}
+
+li {
+    list-style: none;
+    margin-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: .05rem outset rgba(130, 128, 150, 0.447);
+}
