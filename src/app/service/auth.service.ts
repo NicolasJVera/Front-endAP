@@ -9,17 +9,17 @@ import { JwtDto } from '../model/jwt-dto';
   providedIn: 'root'
 })
 export class AuthService {
-  URL ='http://localhost:8080/auth/';
-  // authURL ='https://portfolio-backend-vau2.onrender.com/auth/';
+  // URL ='http://localhost:8080/auth/';
+  authURL ='https://portfolio-backend-vau2.onrender.com/auth/';
 
   constructor(private httpClient: HttpClient) { }
 
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
-    return this.httpClient.post<any>(this.URL + 'nuevo', nuevoUsuario);
+    return this.httpClient.post<any>(this.authURL + 'nuevo', nuevoUsuario);
     
   }
 
   public login(LoginUsuario: LoginUsuario): Observable<JwtDto> {
-    return this.httpClient.post<JwtDto>(this.URL + 'login', LoginUsuario);
+    return this.httpClient.post<JwtDto>(this.authURL + 'login', LoginUsuario);
   }
 }
