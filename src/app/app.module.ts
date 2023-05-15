@@ -26,6 +26,7 @@ import { EditeducacionComponent } from './components/educacion/editeducacion.com
 import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
 import { NewskillComponent } from './components/skills/newskill.component';
 import { EditskillComponent } from './components/skills/editskill.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { EditskillComponent } from './components/skills/editskill.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgCircleProgressModule.forRoot ({})
   ],
   providers: [
     interceptorProvider
