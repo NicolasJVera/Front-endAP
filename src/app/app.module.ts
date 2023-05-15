@@ -10,13 +10,12 @@ import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
 import { SocialComponent } from './components/social/social.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { EducacionComponent } from './components/educacion/educacion.component';
-import { HysComponent } from './components/hys/hys.component';
-import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { IndexComponent } from './components/index/index.component';
+import { SkillsComponent } from './components/skills/skills.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { interceptorProvider } from './service/interceptor-service';
@@ -24,9 +23,9 @@ import { NewExperienciaComponent } from './components/experiencia/new-experienci
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 import { NeweducacionComponent } from './components/educacion/neweducacion.component';
 import { EditeducacionComponent } from './components/educacion/editeducacion.component';
-import { EditSkillComponent } from './components/hys/edit-skill.component';
-import { NewSkillComponent } from './components/hys/new-skill.component';
 import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
+import { NewskillComponent } from './components/skills/newskill.component';
+import { EditskillComponent } from './components/skills/editskill.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,7 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.com
     SocialComponent,
     ExperienciaComponent,
     EducacionComponent,
-    HysComponent,
-    PortfolioComponent,
+    SkillsComponent,
     FooterComponent,
     LoginComponent,
     RegistroComponent,
@@ -48,9 +46,9 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.com
     EditExperienciaComponent,
     NeweducacionComponent,
     EditeducacionComponent,
-    EditSkillComponent,
-    NewSkillComponent,
-    EditAcercaDeComponent
+    EditAcercaDeComponent,
+    NewskillComponent,
+    EditskillComponent
   ],
   imports: [
     BrowserModule,

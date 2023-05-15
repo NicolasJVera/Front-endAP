@@ -1,35 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { persona } from '../model/persona.model';
+import { Persona } from '../model/persona.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonaService {
+
   // URL ='http://localhost:8080/personas/';
-  URL ='https://portfolio-backend-vau2.onrender.com/personas/';
+  URL ='https://portfolio-backend-vau2.onrender.com/persona';
 
-  constructor(private httpClient: HttpClient) { }
-
-
-  public lista(): Observable<persona[]> {
-    return this.httpClient.get<persona[]>(this.URL + 'lista');
+  constructor(private http: HttpClient) { }
+  
+  public getPersona(): Observable<Persona> {
+    return this.http.get<Persona>(`${this.URL}/traer`);
   }
 
-  public detail(id: number): Observable<persona> {
-    return this.httpClient.get<persona>(this.URL + `detail/${id}`);
+  public editarPersona(persona: Persona): Observable<Persona> {
+    return this.http.put<Persona>(`${this.URL}/editar`, persona);
   }
-
- /* public save(Persona: Persona): Observable<any>{
-    return this.httpClient.post<any>(this.URL + 'create', Persona);
-  } */
-
-  public update(id: number, Persona: persona): Observable<any>{
-    return this.httpClient.put<any>(this.URL + `update/${id}`, Persona);
-  }
-
- /* public delete(id: number): Observable<any>{
-    return this.httpClient.delete<any>(this.URL + `delete/${id}`);
-  } */
 }

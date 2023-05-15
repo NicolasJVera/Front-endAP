@@ -9,24 +9,50 @@ import { EducacionService } from 'src/app/service/educacion.service';
   styleUrls: ['./neweducacion.component.css']
 })
 export class NeweducacionComponent implements OnInit{
-  nombreE: string;
-  descripcionE: string;
+  titulo: string;
+  nombreInstitucion: string;
+  fechainicio: string;
+  fechafin: string = 'Actualidad';
 
-  constructor(private educacionS: EducacionService, private router: Router) { }
+  constructor(private sEducacion: EducacionService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  onCreate(): void{
-    const educacion = new Educacion(this.nombreE, this.descripcionE);
-    this.educacionS.save(educacion).subscribe(
-      data =>{
-        alert("Educacion añadida correctamente");
-        this.router.navigate(['']);
-      }, err =>{
-        alert("falló");
-        this.router.navigate(['']);
-      }
-    )
+  onCreate(): void {
+    const educacion = new Educacion(
+      this.titulo,
+      this.nombreInstitucion,
+      this.fechainicio,
+      this.fechafin
+    );
+    //para deshabilitar el envío de formularios si hay campos no válidos
+    (function () {
+      'use strict';
+
+      // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+      var forms = document.querySelectorAll('.needs-validation');
+
+      // Bucle sobre ellos y evitar el envío
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener(
+          'submit',
+          function (event: any): void {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+          },
+          false
+        );
+      });
+    })();
+
+    this.sEducacion.save(educacion).subscribe((response) => {
+      alert('Educación añadida');
+      this.sEducacion.lista();
+      this.router.navigate(['']);
+    });
   }
 }
