@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Proyecto } from '../model/proyecto';
+import { Proyecto } from '../model/proyectos';
 
 @Injectable({
   providedIn: 'root',
@@ -9,25 +9,25 @@ import { Proyecto } from '../model/proyecto';
 export class ProyectoService {
   private URL = 'https://portfolio-backend-vau2.onrender.com/proyecto';
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  public lista(): Observable<Proyecto[]> {
-    return this.http.get<Proyecto[]>(`${this.URL}/lista`);
+  public lista(): Observable<Proyecto[]>{
+    return this.httpClient.get<Proyecto[]>(this.URL + 'lista');
   }
 
-  public save(proyecto: Proyecto): Observable<Proyecto> {
-    return this.http.post<Proyecto>(`${this.URL}/crear`, proyecto);
+  public detail(id: number): Observable<Proyecto>{
+    return this.httpClient.get<Proyecto>(this.URL + `detail/${id}`);
   }
 
-  public listaPorId(id: number): Observable<Proyecto> {
-    return this.http.get<Proyecto>(`${this.URL}/traer/${id}`);
+  public save(proyecto: Proyecto): Observable<any>{
+    return this.httpClient.post<any>(this.URL + 'create', proyecto);
   }
 
-  public update(id: number, proyecto: Proyecto): Observable<any> {
-    return this.http.put<any>(`${this.URL}/editar/${id}`, proyecto);
+  public update(id: number, proyecto: Proyecto): Observable<any>{
+    return this.httpClient.put<any>(this.URL + `update/${id}`, proyecto);
   }
 
-  public delete(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.URL}/borrar/${id}`);
+  public delete(id: number): Observable<any>{
+    return this.httpClient.delete<any>(this.URL + `delete/${id}`);
   }
 }

@@ -1,88 +1,28 @@
-<div class="container-fluid mt-3" *ngIf="educacion">
-    <form #form="ngForm" class="needs-validation" novalidate>
-      <div class="row">
-        <div class="col-12 col-md-4 text-start">
-          <label for="titulo" class="form-label">Título</label>
+<div class="container" *ngIf="educacion">
+  <div class="row">
+      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+        <div class="form-group">
+          <label for="nombreE">Nombre del estudio:</label>
+          <input type="text" class="form-control" id="nombreE" name="nombreE" [(ngModel)]="educacion.nombreE" required>
         </div>
-        <div class="col-12 col-md">
-          <input
-            class="form-control"
-            type="text"
-            id="titulo"
-            name="titulo"
-            [(ngModel)]="educacion.titulo"
-            required
-          />
-          <div class="invalid-feedback">Campo obligatorio.</div>
-          <div class="valid-feedback">Campo completo.</div>
+        <div class="form-group">
+          <label for="descripcionE">Descripcion:</label>
+          <input type="text" class="form-control" id="descripcionE" name="descripcionE"
+            [(ngModel)]="educacion.descripcionE" required>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12 col-md-4 text-start">
-          <label for="nombreInstitucion" class="form-label"
-            >Nombre Institucion</label
-          >
+        <div class="form-group">
+          <label for="descripcionE">Duracion:</label>
+          <input type="text" class="form-control" id="duracion" name="duracion" [(ngModel)]="educacion.duracion"
+            required>
         </div>
-        <div class="col-12 col-md">
-          <input
-            class="form-control"
-            type="text"
-            id="nombreInstitucion"
-            name="nombreInstitucion"
-            [(ngModel)]="educacion.nombreInstitucion"
-            required
-          />
-          <div class="invalid-feedback">Campo obligatorio.</div>
-          <div class="valid-feedback">Campo completo.</div>
+        <div class="form-group">
+          <label for="img">Imagen:</label>
+          <input type="file" class="form-control" id="imagen" name="imagen" [(ngModel)]="educacion.imagen"
+            (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12 col-md-4 text-start">
-          <label for="fechainicio" class="form-label">Fecha Inicio</label>
-        </div>
-        <div class="col-12 col-md">
-          <input
-            class="form-control"
-            type="text"
-            id="fechainicio"
-            name="fechainicio"
-            [(ngModel)]="educacion.fechainicio"
-            required
-            placeholder="Formato MM/AAAA"
-          />
-          <div class="invalid-feedback">Campo obligatorio.</div>
-          <div class="valid-feedback">Campo completo.</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 col-md-4 text-start">
-          <label for="fechafin" class="form-label">Fecha Fin</label>
-        </div>
-        <div class="col-12 col-md">
-          <input
-            class="form-control"
-            type="text"
-            id="fechafin"
-            name="fechafin"
-            [(ngModel)]="educacion.fechafin"
-          />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <button
-            class="btn btn-md btn-success"
-            type="submit"
-            (click)="onUpdate()"
-          >
-            Actualizar
-          </button>
-        </div>
-        <div class="col">
-          <button class="btn btn-md btn-outline-primary" [routerLink]="'/'">
-            Volver
-          </button>
-        </div>
-      </div>
-    </form>
+        <button class="btn btn-primary">
+          Editar educacion
+        </button>
+      </form>
   </div>
+</div>

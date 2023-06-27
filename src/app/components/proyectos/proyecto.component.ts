@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Proyecto } from 'src/app/model/proyecto';
+import { Proyecto } from 'src/app/model/proyectos';
 import { ProyectoService } from 'src/app/service/proyecto.service';
 import { TokenService } from 'src/app/service/token.service';
 
@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./proyecto.component.css'],
 })
 export class ProyectosComponent implements OnInit {
-  proyectos: Proyecto[];
+  proyecto: Proyecto[];
 
   constructor(
     private proService: ProyectoService,
@@ -29,7 +29,7 @@ export class ProyectosComponent implements OnInit {
   }
   cargarProyectos() {
     this.proService.lista().subscribe((data) => {
-      this.proyectos = data;
+      this.proyecto = data;
     });
     }
 

@@ -1,5 +1,5 @@
 .canva-bg {
-    background: linear-gradient(90deg, rgba(221,217,186,1) 7%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%);
+  background-color: aliceblue;
   }
 
   .m-item:hover {
@@ -12,5 +12,5 @@
   }
 
 .bg-nv{
-  background-color: #bb0000;
+  background-color: azure;
   }

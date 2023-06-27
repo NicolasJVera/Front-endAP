@@ -10,26 +10,25 @@ export class SkillService {
   // URL ='http://localhost:8080/personas/';
   URL = 'https://portfolio-backend-vau2.onrender.com/skills/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  public lista(): Observable<Skills[]> {
-    return this.http.get<Skills[]>(`${this.URL}/lista`);
+  public lista(): Observable<Skills[]>{
+    return this.httpClient.get<Skills[]>(this.URL + 'lista');
   }
 
-  public listaPorId(id: number): Observable<Skills> {
-    return this.http.get<Skills>(`${this.URL}/traer/${id}`);
+  public detail(id: number): Observable<Skills>{
+    return this.httpClient.get<Skills>(this.URL + `detail/${id}`);
   }
 
-  public save(skills: Skills): Observable<Skills> {
-    return this.http.post<Skills>(`${this.URL}/crear`, skills);
+  public save(skill: Skills): Observable<any>{
+    return this.httpClient.post<any>(this.URL + 'create', skill);
   }
 
-  public update(id: number, skills: Skills): Observable<any> {
-    return this.http.put<any>(`${this.URL}/editar/${id}`, skills);
+  public update(id: number, skill: Skills): Observable<any>{
+    return this.httpClient.put<any>(this.URL + `update/${id}`, skill);
   }
 
-  public delete(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.URL}/borrar/${id}`);
-  }
-
+  public delete(id: number): Observable<any>{
+    return this.httpClient.delete(this.URL + `delete/${id}`);
+ }
 }

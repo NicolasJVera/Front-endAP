@@ -1,60 +1,56 @@
-<div class="container-fluid" id="ir-proyectos">
-    <div class="list-group-flush w-90">
-      <div class="row">
-        <div class="col text-start">
-          <h1>Proyectos</h1>
-        </div>
-        <div class="col text-end">
-          <button
-            routerLink="/newproyecto"
-            class="btn btn-sm btn-outline-secondary bi bi-plus-square"
-            *ngIf="isLogged"
-          >
-            Agregar
-          </button>
-        </div>
-        <div class="row" *ngIf="proyectos?.length == 0">
-          <p style="color: rgb(196, 162, 162)">No hay proyectos para mostrar</p>
-        </div>
-  
-        <div class="card w-3">
-          <ul>
-            <li class="list-group-item" *ngFor="let Proyecto of proyectos">
-              <img
-                class="card-img-top img-responsive img-thumbnail"
-                src="{{ Proyecto.imgproyecto }}"
-                alt="Imagen {{ Proyecto.nombreProyecto }}"
-              />
-  
-              <div class="card-body">
-                <h3 class="card-title">{{ Proyecto.nombreProyecto }}</h3>
-                <p class="card-text">
-                  {{ Proyecto.descripcionProyecto }}
-                </p>
-              </div>
-              <div class="row card-footer w-60">
-                <div class="col text-end">
-                  <button
-                    *ngIf="isLogged"
-                    class="bi bi-pencil btn btn-sm btn-outline-dark"
-                    routerLink="/editproyecto/{{ Proyecto.id }}"
-                  >
-                    Editar
-                  </button>
-                </div>
-                <div class="col text-start">
-                  <button
-                    *ngIf="isLogged"
-                    class="bi bi-trash3-fill btn btn-sm btn-outline-danger"
-                    (click)="delete(Proyecto.id)"
-                  >
-                    Borrar
-                  </button>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<div class="row" *ngFor="let proyecto of proyecto">
+  <h1>Portfolio</h1>
+  <button type="button" class="btn btn-primary" routerLink="/" *ngIf="isLogged">
+    Editar persona
+  </button>
+  <div class="col-sm-2 col-md-2 col-lg-2 mb-3">
+    <img src="{{proyecto.imagen}}" alt="imagen portfolio" class="img-thumbnail" style="width: 100px;">
   </div>
+  <div class="col-sm-10 col-md-10 col-lg-10">
+    <h5 class="text-white m-0 p-0">{{proyecto.nombre}}</h5>
+    <br>
+    <p class="text-white m-0 p-0">{{proyecto.descripcion}} <br>
+      <i class="text-muted">{{proyecto.descripcion}}</i>
+      <br>
+    </p>
+  </div>
+  <td *ngIf="isLogged">
+    <button class="btn btn-light" routerLink="/editedu/{{proyecto.id}}">
+      <i class="bi bi-pencil-fill"></i>EDITAR</button>
+  </td>
+  <td *ngIf="isLogged">
+    <button class="btn btn-danger" (click)="delete(proyecto.id)">
+      <i class="bi bi-trash-fill"></i> BORRAR</button>
+  </td>
+</div>
+
+
+
+<!-- <div class="row">
+  <div class="col-sm-2 col-md-2 col-lg-2 mb-3">
+      <img src="../../../assets/img/arg-programa.png" alt="argentina programa" class="img-thumbnail" style="width: 100px;">
+  </div>
+  <div class="col-sm-10 col-md-10 col-lg-10">
+      <h5 class="text-white m-0 p-0">Argentina Programa</h5>
+      <br>
+      <p class="text-white m-0 p-0"> Curso #SéProgramar <br>
+          <i class="text-muted">06/2022 - 06/2022</i>
+          <br>
+          <b>Promoción 2022</b>
+      </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2 mb-3">
+      <img src="../../../assets/img/Udemy_logo.svg.png" alt="Udemy" class="img-thumbnail" style="width: 100px;">
+  </div>
+  <div class="col-10">
+      <h5 class="text-white m-0 p-0">Udemy</h5>
+      <br>
+      <p class="text-white m-0 p-0">Curso Desarrollo Web Completo<br>
+          <i class="text-muted">Actualidad.</i>
+          <br>
+      </p>
+  </div>
+  <a name="hard"></a>
+</div> -->

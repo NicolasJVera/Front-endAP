@@ -10,25 +10,25 @@ export class SExperienciaService {
   // URL ='http://localhost:8080/personas/';
   URL = 'https://portfolio-backend-vau2.onrender.com/experiencia/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  public lista(): Observable<Experiencia[]> {
-    return this.http.get<Experiencia[]>(`${this.URL}/lista`);
+  public lista(): Observable<Experiencia[]>{
+    return this.httpClient.get<Experiencia[]>(this.URL + 'lista');
   }
 
-  public save(experiencia: Experiencia): Observable<Experiencia> {
-    return this.http.post<Experiencia>(`${this.URL}/crear`, experiencia);
+  public detail(id: number): Observable<Experiencia>{
+    return this.httpClient.get<Experiencia>(this.URL + `detail/${id}`);
+  } 
+
+  public save(experiencia: Experiencia): Observable<any>{
+    return this.httpClient.post<any>(this.URL + 'create', experiencia);
   }
 
-  public listaPorId(id: number): Observable<Experiencia> {
-    return this.http.get<Experiencia>(`${this.URL}/traer/${id}`);
+  public update(id: number, experiencia: Experiencia): Observable<any>{
+    return this.httpClient.put<any>(this.URL + `update/${id}`, experiencia);
   }
 
-  public update(id: number, experiencia: Experiencia): Observable<any> {
-    return this.http.put<any>(`${this.URL}/editar/${id}`, experiencia);
-  }
-
-  public delete(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.URL}/borrar/${id}`);
+  public delete(id: number): Observable<any>{
+    return this.httpClient.delete<any>(this.URL + `delete/${id}`);
   }
 }
