@@ -8,7 +8,7 @@ import { Educacion } from '../model/educacion';
 })
 export class EducacionService {
   // URL ='http://localhost:8080/educacion';
-  private URL ='https://portfolio-backend-vau2.onrender.com/educacion';
+  private URL ='https://portfolio-backend-vau2.onrender.com/educacion/';
 
   constructor(private httpClient: HttpClient) { }
 

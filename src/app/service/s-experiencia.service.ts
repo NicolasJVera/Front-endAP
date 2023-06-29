@@ -8,7 +8,7 @@ import { Experiencia } from '../model/experiencia';
 })
 export class SExperienciaService {
   // URL ='http://localhost:8080/personas/';
-  URL = 'https://portfolio-backend-vau2.onrender.com/experiencia/';
+  private URL = 'https://portfolio-backend-vau2.onrender.com/experiencia/';
 
   constructor(private httpClient: HttpClient) { }
 

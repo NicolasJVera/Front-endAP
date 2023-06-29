@@ -7,7 +7,7 @@ import { Proyecto } from '../model/proyectos';
   providedIn: 'root',
 })
 export class ProyectoService {
-  private URL = 'https://portfolio-backend-vau2.onrender.com/proyecto';
+  private URL = 'https://portfolio-backend-vau2.onrender.com/proyecto/';
 
   constructor(private httpClient: HttpClient) { }
 
