@@ -3,7 +3,7 @@ export class persona {
   nombre: string;
   apellido: string;
   descripcion: string;
-  img: String;
+  img: string;
 
   constructor(nombre: string, apellido: string, descripcion: string, img: string){
       this.nombre = nombre;

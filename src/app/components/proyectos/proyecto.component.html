@@ -1,27 +1,33 @@
-<div class="row" *ngFor="let proyecto of proyecto">
+<div class="row" id="proyectos">
   <h1>Portfolio</h1>
-  <button type="button" class="btn btn-primary" routerLink="/" *ngIf="isLogged">
-    Editar persona
-  </button>
-  <div class="col-sm-2 col-md-2 col-lg-2 mb-3">
-    <img src="{{proyecto.imagen}}" alt="imagen portfolio" class="img-thumbnail" style="width: 100px;">
+  <div class="col-lg-2">
+      <button type="button" class="btn btn-dark" routerLink="/newproyecto" *ngIf="isLogged">
+          Nuevo Proyecto
+      </button>
   </div>
-  <div class="col-sm-10 col-md-10 col-lg-10">
-    <h5 class="text-white m-0 p-0">{{proyecto.nombre}}</h5>
-    <br>
-    <p class="text-white m-0 p-0">{{proyecto.descripcion}} <br>
-      <i class="text-muted">{{proyecto.descripcion}}</i>
-      <br>
-    </p>
+
+  <div class="col lg 1"></div>
+  <div class="col-lg-11">
+      <table class="table">
+          <tbody>
+              <tr *ngFor="let proyecto of proyecto">
+                  <td>
+                      <h2>{{proyecto.nombre}}</h2>
+                  </td>
+                  <td>{{proyecto.imagen}}</td>
+                  <td>{{proyecto.descripcion}}</td>
+                  <td *ngIf="isLogged">
+                      <button class="btn btn-light" routerLink="/editproyecto/{{proyecto.id}}">
+                          <i class="bi bi-pencil-fill"></i> EDITAR</button>
+                  </td>
+                  <td *ngIf="isLogged">
+                      <button class="btn btn-danger" (click)="delete(proyecto.id)">
+                          <i class="bi bi-trash-fill"></i> BORRAR</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
   </div>
-  <td *ngIf="isLogged">
-    <button class="btn btn-light" routerLink="/editedu/{{proyecto.id}}">
-      <i class="bi bi-pencil-fill"></i>EDITAR</button>
-  </td>
-  <td *ngIf="isLogged">
-    <button class="btn btn-danger" (click)="delete(proyecto.id)">
-      <i class="bi bi-trash-fill"></i> BORRAR</button>
-  </td>
 </div>
 
 
