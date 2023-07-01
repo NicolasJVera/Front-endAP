@@ -1,5 +1,5 @@
 <div class="row" id="proyectos">
-  <h1>Portfolio</h1>
+  <h1>Proyectos</h1>
   <div class="col-lg-2">
       <button type="button" class="btn btn-dark" routerLink="/newproyecto" *ngIf="isLogged">
           Nuevo Proyecto
@@ -14,8 +14,8 @@
                   <td>
                       <h2>{{proyecto.nombre}}</h2>
                   </td>
-                  <td>{{proyecto.imagen}}</td>
                   <td>{{proyecto.descripcion}}</td>
+                  <td>{{proyecto.imagen}}</td>
                   <td *ngIf="isLogged">
                       <button class="btn btn-light" routerLink="/editproyecto/{{proyecto.id}}">
                           <i class="bi bi-pencil-fill"></i> EDITAR</button>

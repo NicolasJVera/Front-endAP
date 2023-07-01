@@ -1,4 +1,4 @@
-<div id="acercade" class="container text-center mt-5 mb-3">
+<div id="acercade" class="container text-center mt-5 mb-3" *ngIf="persona">
   <div class="row rounded bg-gradient">
     <button type="button" class="btn btn-primary" routerLink="/editacercade/1" *ngIf="isLogged">
       Editar persona
@@ -8,7 +8,7 @@
       <div class="mb-2">
         <h3 class="text-white p-0 m-0">{{persona.nombre}} {{persona.apellido}}</h3>
       </div>
-      <img src={{persona.img}} alt="avatar" class="rounded-circle p-1 img-thumbnail" style="width: 155px;">
+      <img src={{persona.img}} alt="av" class="rounded-circle p-1 img-thumbnail" style="width: 155px;">
     </div>
     <div class="col-sm-9 col-md-9 col-lg-9 mt-5">
       <h3 class="text-white p-0 m-0">Acerca De Mi</h3>
@@ -16,31 +16,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<!-- <div class="mt-5 container" id="acerca-de">
-  <div class="row no-gutters mb-2 pb-1 align-items-start">
-    <div class="col-12 col-sm-3 d-inline-block position-relative text-center">
-      <img class="img-fluid foto-perfil" id="img" name="img" src="{{persona.img}}" alt="" />
-    </div>
-
-    <div class="col-12 col-sm-4 text-center">
-      <h3 id="nombre" name="nombre">
-        {{ persona.nombre }} {{ persona.apellido }}
-      </h3>
-      <h4>{{ persona.titulo }}</h4>
-    </div>
-    <div class="col-12 col-sm-5" id="ir-acerca-de">
-      <h2 class="text-center mt-1">Acerca de mi:</h2>
-      <p id="about" class="text-start">{{ persona.about }}</p>
-      <button type="button" class="btn btn-outline-secondary bi bi-pencil-square" *ngIf="isLogged"
-        routerLink="/editAbout/{{ persona.id}}" title="Editar">
-        Editar
-      </button>
-    </div>
-  </div>
-</div> -->
